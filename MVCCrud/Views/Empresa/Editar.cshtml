@@ -1,0 +1,42 @@
+﻿
+@model MVCCrud.Models.View_models.Empresaviewmodels
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Editar", "Empresa", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(d => d.Id)
+            <div>
+                @Html.LabelFor(d => d.perNombre)
+                @Html.TextBoxFor(d => d.perNombre, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perNombre, null, new { @class = "red" })
+            </div>
+
+            <div>
+                @Html.LabelFor(d => d.perCorreo)
+                @Html.TextBoxFor(d => d.perCorreo, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perCorreo, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.perNit)
+                @Html.TextBoxFor(d => d.perNit, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perNit, null, new { @class = "red" })
+            </div>
+            <br />
+
+            <div style="text-align:right;">
+                <a class="btn btn-primary" type="button" href="~/Usuarios"> Cancelar </a>
+
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+
+    </div>
+}
+

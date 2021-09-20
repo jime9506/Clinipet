@@ -1,0 +1,46 @@
+﻿@model List<MVCCrud.Models.View_models.Usuarioviewmodels>
+@{
+    ViewBag.Title = "Mis datos";
+}
+
+<h2>ViewBag.Title</h2>
+
+
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Usuarios/Crear" class="btn btn-primary">Crear </a> 
+</div>  
+<div class="row">
+    <div class=" col-md-12">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Cedula</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Genero</th>
+                <th>Correo</th>
+                <th></th>
+                
+            </tr>
+            @foreach (var oElemento in Model)
+            {
+              <tr>
+                     <td>@oElemento.Id</td>
+                     <td>@oElemento.perCedula</td>
+                     <td>@oElemento.perNombres</td>
+                     <td>@oElemento.perApellidos</td>
+                     <td>@oElemento.perGenero</td>
+                     <td>@oElemento.perCorreo</td>
+                 <td>
+                     <a class="btn btn-default" href="~/Usuarios/Editar/@oElemento.Id">Editar</a>
+                     <a class="btn btn-danger" href="~/Usuarios/Eliminar/@oElemento.Id">Eliminar</a>
+                 </td>
+
+               </tr>
+            }
+        </table>
+
+    </div>
+
+
+</div>

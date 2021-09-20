@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style type="text/css">
+        .auto-style1 {
+            width: 58%;
+            height: 487px;
+            margin-left: 306px;
+        }
+
+        .auto-style2 {
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-2 text-center ">
+                <img src="~/assets/images/LOGOCLINIPET.png" width="150" />
+
+            </div>
+            <div class="col-12 col-md-10">
+                <div class="navbar navbar-inverse">
+                    <div class="">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                        </div>
+                        <div class="navbar-collapse collapse">
+
+                            <div class="row">
+                                <div class="col-12 col-md-6 text-center">
+
+                                    <span class="link h1">  Clinipet </span>
+                                </div>
+                                <div class="col-12 col-md-6 ">
+
+                                    <a class="logos" href="https://m.facebook.com/login/?locale=es" target="_blank">
+                                        <img src="~/assets/images/facebook1.png" width="30" />
+                                    </a>
+                                    <a class="logos" href="https://www.instagram.com/accounts/login/" target="_blank">
+                                        <img src="~/assets/images/insta1.png" width="30" />
+                                    </a>
+
+                                    <a class="logos" href="https://web.whatsapp.com/" target="_blank">
+                                        <img src="~/assets/images/whats1.png" width="30" />
+                                    </a>
+
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="menu">
+                                    <section class="">
+                                        <div class=" row logos">
+                                            <div class="col-12 col-md-4 border">
+
+                                                <div class="text-center h3">
+                                                    <a class="link" runat="server" href="~/">Inicio</a>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12 col-md-4 border">
+
+
+                                                <div class=" text-center h3">
+
+                                                    
+                                                    @Html.ActionLink("Beneficios", "About", "Home", new { area = "" }, new { @class = "link" })
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="col-12 col-md-4 border">
+                                                <div class="text-center h3">
+                                                    @Html.ActionLink("Login", "Contact", "Home", new { area = "" }, new { @class = "link" })
+
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <section class="row w100">
+            <section class="col-12 col-md-3">
+                <div class="column">
+                    <div class="menu">
+                        <section class="">
+                            <div class=" row logos">
+                                <div class=" btn-left">
+                                    <div class="text-center h3">
+                                        <a class="link" runat="server" href="~/">Veterinarias</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="menu">
+                        <section class="">
+                            <div class=" row logos">
+                                <div class=" btn-left">
+                                    <div class="text-center h3">
+                                        <a class="link" runat="server" href="~/">Servicio de urgencias</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="menu">
+                        <section class="">
+                            <div class=" row logos">
+                                <div class=" btn-left">
+                                    <div class="text-center h3">
+                                        <a class="link" runat="server" href="~/">Agenda tu cita</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section class="col-12 col-md-9">
+                <div class="body-content">
+                    @RenderBody()
+                    <hr />
+                    <footer>
+                        <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+                    </footer>
+                </div>
+            </section>
+        </section>
+    </div>
+    
+
+   
+
+    
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
+

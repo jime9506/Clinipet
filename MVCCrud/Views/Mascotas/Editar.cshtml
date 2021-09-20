@@ -1,0 +1,63 @@
+﻿@model MVCCrud.Models.View_models.Mascotasviewmodels
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Editar", "Usuarios", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(d => d.Id)
+            <div>
+                @Html.LabelFor(d => d.Categoria)
+                @Html.TextBoxFor(d => d.Categoria, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Categoria, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.NombreMascota)
+                @Html.TextBoxFor(d => d.NombreMascota, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.NombreMascota, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Telefono)
+                @Html.TextBoxFor(d => d.Telefono, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Telefono, null, new { @class = "red" })
+
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Raza)
+                @Html.TextBoxFor(d => d.Raza, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Raza, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Edad)
+                @Html.TextBoxFor(d => d.Edad, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Edad, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Sexo)
+                @Html.TextBoxFor(d => d.Sexo, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Sexo, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Acudiente)
+                @Html.TextBoxFor(d => d.Acudiente, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Acudiente, null, new { @class = "red" })
+            </div>
+
+            <br />
+
+            <div style="text-align:right;">
+                <a class="btn btn-primary" type="button" href="~/Usuarios"> Cancelar </a>
+
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+
+    </div>
+}
+
+

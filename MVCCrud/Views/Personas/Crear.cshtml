@@ -1,0 +1,55 @@
+﻿@model MVCCrud.Models.View_models.Personasviewmodels
+@{
+    ViewBag.Title = "Crear";
+}
+
+<h2>ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Crear", "Personas", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                @Html.LabelFor(d => d.perIdentificacion)
+                @Html.TextBoxFor(d => d.perIdentificacion, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perIdentificacion, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.perNombres)
+                @Html.TextBoxFor(d => d.perNombres, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perNombres, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.perApellidos)
+                @Html.TextBoxFor(d => d.perApellidos, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perApellidos, null, new { @class = "red" })
+
+            </div>
+            <div>
+                @Html.LabelFor(d => d.perGenero)
+                @Html.TextBoxFor(d => d.perGenero, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perGenero, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.perCorreo)
+                @Html.TextBoxFor(d => d.perCorreo, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perCorreo, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.perFechaNacimiento)
+                @Html.TextBoxFor(d => d.perFechaNacimiento, "", new { Type="date" ,@class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perFechaNacimiento, null, new { @class = "red" })
+            </div>
+            <br />
+
+            <div style="text-align:right;">
+                <a class="btn btn-primary" type="button" href="~/Personas"> Cancelar </a>
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+
+    </div>
+}
+
+

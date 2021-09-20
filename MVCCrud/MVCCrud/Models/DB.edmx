@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Clinipet1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Clinipet1.dbo..Roles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="_Roles">
+          <Key>
+            <PropertyRef Name="IdRol" />
+            <PropertyRef Name="Rol" />
+          </Key>
+          <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rol" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Clinipet1.dbo.Empleados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Cargo" />
+            <PropertyRef Name="FechaContratacion" />
+            <PropertyRef Name="TipoContrato" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Cargo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaContratacion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipoContrato" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Clinipet1.dbo.Empresa' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="perNombre" />
+            <PropertyRef Name="perCorreo" />
+            <PropertyRef Name="perNit" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="perNombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="perCorreo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="perNit" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Clinipet1.dbo.HistoriaClinica' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="HistoriaClinica">
+          <Key>
+            <PropertyRef Name="Emfermedades" />
+            <PropertyRef Name="Vacunas" />
+            <PropertyRef Name="Peso" />
+          </Key>
+          <Property Name="IdMascota" Type="int" />
+          <Property Name="Emfermedades" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Vacunas" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Peso" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Clinipet1.dbo.Mascota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Mascota">
+          <Key>
+            <PropertyRef Name="Categoria" />
+            <PropertyRef Name="NombreMascota" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Raza" />
+            <PropertyRef Name="Edad" />
+            <PropertyRef Name="Sexo" />
+            <PropertyRef Name="Acudiente" />
+          </Key>
+          <Property Name="IdMascota" Type="int" />
+          <Property Name="Categoria" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreMascota" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="int" Nullable="false" />
+          <Property Name="Raza" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Edad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sexo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Acudiente" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Personas">
+          <Key>
+            <PropertyRef Name="IdPersona" />
+          </Key>
+          <Property Name="IdPersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="perIdentificacion" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="perNombres" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="perApellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="perGenero" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="perCorreo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="perFechaNacimiento" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Clinipet1.dbo.Roles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="IdRol" />
+            <PropertyRef Name="Rol" />
+          </Key>
+          <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rol" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Clinipet1.dbo.Usuario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="IdRol" />
+            <PropertyRef Name="IdPersona" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdRol" Type="int" Nullable="false" />
+          <Property Name="IdPersona" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Clinipet1ModelStoreContainer">
+          <EntitySet Name="Personas" EntityType="Self.Personas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_Roles" EntityType="Self._Roles" store:Type="Tables" store:Schema="dbo" store:Name=".Roles">
+            <DefiningQuery>SELECT 
+    [_Roles].[IdRol] AS [IdRol], 
+    [_Roles].[Rol] AS [Rol]
+    FROM [dbo].[.Roles] AS [_Roles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Empleados" EntityType="Self.Empleados" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Empleados].[Id] AS [Id], 
+    [Empleados].[Cargo] AS [Cargo], 
+    [Empleados].[FechaContratacion] AS [FechaContratacion], 
+    [Empleados].[TipoContrato] AS [TipoContrato]
+    FROM [dbo].[Empleados] AS [Empleados]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Empresa].[IdEmpresa] AS [IdEmpresa], 
+    [Empresa].[perNombre] AS [perNombre], 
+    [Empresa].[perCorreo] AS [perCorreo], 
+    [Empresa].[perNit] AS [perNit]
+    FROM [dbo].[Empresa] AS [Empresa]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="HistoriaClinica" EntityType="Self.HistoriaClinica" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [HistoriaClinica].[IdMascota] AS [IdMascota], 
+    [HistoriaClinica].[Emfermedades] AS [Emfermedades], 
+    [HistoriaClinica].[Vacunas] AS [Vacunas], 
+    [HistoriaClinica].[Peso] AS [Peso]
+    FROM [dbo].[HistoriaClinica] AS [HistoriaClinica]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Mascota" EntityType="Self.Mascota" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Mascota].[IdMascota] AS [IdMascota], 
+    [Mascota].[Categoria] AS [Categoria], 
+    [Mascota].[NombreMascota] AS [NombreMascota], 
+    [Mascota].[Telefono] AS [Telefono], 
+    [Mascota].[Raza] AS [Raza], 
+    [Mascota].[Edad] AS [Edad], 
+    [Mascota].[Sexo] AS [Sexo], 
+    [Mascota].[Acudiente] AS [Acudiente]
+    FROM [dbo].[Mascota] AS [Mascota]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Roles" EntityType="Self.Roles" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Roles].[IdRol] AS [IdRol], 
+    [Roles].[Rol] AS [Rol]
+    FROM [dbo].[Roles] AS [Roles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Usuario].[IdUsuario] AS [IdUsuario], 
+    [Usuario].[Email] AS [Email], 
+    [Usuario].[Password] AS [Password], 
+    [Usuario].[IdRol] AS [IdRol], 
+    [Usuario].[IdPersona] AS [IdPersona]
+    FROM [dbo].[Usuario] AS [Usuario]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Clinipet1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Personas">
+          <Key>
+            <PropertyRef Name="IdPersona" />
+          </Key>
+          <Property Name="IdPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="perIdentificacion" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="perNombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="perApellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="perGenero" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="perCorreo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="perFechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="C_Roles">
+          <Key>
+            <PropertyRef Name="IdRol" />
+            <PropertyRef Name="Rol" />
+          </Key>
+          <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Cargo" />
+            <PropertyRef Name="FechaContratacion" />
+            <PropertyRef Name="TipoContrato" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaContratacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TipoContrato" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="perNombre" />
+            <PropertyRef Name="perCorreo" />
+            <PropertyRef Name="perNit" />
+          </Key>
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="perNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="perCorreo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="perNit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HistoriaClinica">
+          <Key>
+            <PropertyRef Name="Emfermedades" />
+            <PropertyRef Name="Vacunas" />
+            <PropertyRef Name="Peso" />
+          </Key>
+          <Property Name="IdMascota" Type="Int32" />
+          <Property Name="Emfermedades" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Vacunas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Peso" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mascota">
+          <Key>
+            <PropertyRef Name="Categoria" />
+            <PropertyRef Name="NombreMascota" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Raza" />
+            <PropertyRef Name="Edad" />
+            <PropertyRef Name="Sexo" />
+            <PropertyRef Name="Acudiente" />
+          </Key>
+          <Property Name="IdMascota" Type="Int32" />
+          <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreMascota" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="Raza" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Edad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Acudiente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="IdRol" />
+            <PropertyRef Name="Rol" />
+          </Key>
+          <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="IdRol" />
+            <PropertyRef Name="IdPersona" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdRol" Type="Int32" Nullable="false" />
+          <Property Name="IdPersona" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Clinipet1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Personas" EntityType="Self.Personas" />
+          <EntitySet Name="C_Roles" EntityType="Self.C_Roles" />
+          <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" />
+          <EntitySet Name="HistoriaClinica" EntityType="Self.HistoriaClinica" />
+          <EntitySet Name="Mascota" EntityType="Self.Mascota" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Clinipet1ModelStoreContainer" CdmEntityContainer="Clinipet1Entities">
+          <EntitySetMapping Name="Personas">
+            <EntityTypeMapping TypeName="Clinipet1Model.Personas">
+              <MappingFragment StoreEntitySet="Personas">
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="perIdentificacion" ColumnName="perIdentificacion" />
+                <ScalarProperty Name="perNombres" ColumnName="perNombres" />
+                <ScalarProperty Name="perApellidos" ColumnName="perApellidos" />
+                <ScalarProperty Name="perGenero" ColumnName="perGenero" />
+                <ScalarProperty Name="perCorreo" ColumnName="perCorreo" />
+                <ScalarProperty Name="perFechaNacimiento" ColumnName="perFechaNacimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_Roles">
+            <EntityTypeMapping TypeName="Clinipet1Model.C_Roles">
+              <MappingFragment StoreEntitySet="_Roles">
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleados">
+            <EntityTypeMapping TypeName="Clinipet1Model.Empleados">
+              <MappingFragment StoreEntitySet="Empleados">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="FechaContratacion" ColumnName="FechaContratacion" />
+                <ScalarProperty Name="TipoContrato" ColumnName="TipoContrato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="Clinipet1Model.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="perNombre" ColumnName="perNombre" />
+                <ScalarProperty Name="perCorreo" ColumnName="perCorreo" />
+                <ScalarProperty Name="perNit" ColumnName="perNit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoriaClinica">
+            <EntityTypeMapping TypeName="Clinipet1Model.HistoriaClinica">
+              <MappingFragment StoreEntitySet="HistoriaClinica">
+                <ScalarProperty Name="IdMascota" ColumnName="IdMascota" />
+                <ScalarProperty Name="Emfermedades" ColumnName="Emfermedades" />
+                <ScalarProperty Name="Vacunas" ColumnName="Vacunas" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mascota">
+            <EntityTypeMapping TypeName="Clinipet1Model.Mascota">
+              <MappingFragment StoreEntitySet="Mascota">
+                <ScalarProperty Name="IdMascota" ColumnName="IdMascota" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="NombreMascota" ColumnName="NombreMascota" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Raza" ColumnName="Raza" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Acudiente" ColumnName="Acudiente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="Clinipet1Model.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="Clinipet1Model.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

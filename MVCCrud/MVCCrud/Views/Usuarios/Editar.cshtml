@@ -1,0 +1,50 @@
+﻿@model MVCCrud.Models.View_models.Usuariosviewmodels
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Editar", "Usuarios", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(d=>d.Id)
+            <div>
+                @Html.LabelFor(d => d.perCedula)
+                @Html.TextBoxFor(d => d.perCedula, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perCedula, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.perNombres)
+                @Html.TextBoxFor(d => d.perNombres, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perNombres, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.perApellidos)
+                @Html.TextBoxFor(d => d.perApellidos, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perApellidos, null, new { @class = "red" })
+
+            </div>
+            <div>
+                @Html.LabelFor(d => d.perGenero)
+                @Html.TextBoxFor(d => d.perGenero, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perGenero, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.perCorreo)
+                @Html.TextBoxFor(d => d.perCorreo, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perCorreo, null, new { @class = "red" })
+            </div>
+            <br />
+
+            <div style="text-align:right;">
+                <a class="btn btn-primary" type="button" href="~/Usuarios"> Cancelar </a>
+
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+
+    </div>
+}
