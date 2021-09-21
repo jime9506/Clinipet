@@ -116,3 +116,43 @@ textarea {
 .btn-left:hover {
     background: #48CAE4;
 }
+.contenedor {
+    border: 1px solid;
+    width: 50%;
+    padding: 15px;
+}
+
+.formulario {
+    background:;
+    margin-top: 10px;
+    padding: 3px;
+}
+
+input[type="text"],
+input[type="password"] {
+    font-size: 20px;
+    width: 82%;
+    padding: 10px;
+    border: None;
+}
+
+.input-contenedor {
+    margin-bottom: 10px;
+}
+
+.icon {
+    min-width: 50px;
+    text-align: center;
+    color: #999
+}
+
+.button-login {
+    width: 75%;
+    background-color: #1a2537;
+    color: white;
+    padding: 10px;
+}
+
+    .button-login:hover {
+        background: cadetblue;
+    }

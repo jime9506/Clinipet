@@ -1,6 +1,6 @@
 ﻿@model MVCCrud.Models.View_models.Rolesviewmodels
 @{
-    ViewBag.Title = "Nuevo";
+    ViewBag.Title = "Crear";
 }
 
 <h2>ViewBag.Title</h2>
@@ -21,12 +21,11 @@
                 @Html.TextBoxFor(d => d.Rol, "", new { @class = "form-control" })
                 @Html.ValidationMessageFor(d => d.Rol, null, new { @class = "red" })
             </div>
-            
 
             <br />
 
             <div style="text-align:right;">
-                <a class="btn btn-primary" type="button" href="~/Usuarios"> Cancelar </a>
+                <a class="btn btn-primary" type="button" href="~/Personas"> Cancelar </a>
 
                 <input value="Guardar" class="btn btn-primary" type="submit" />
             </div>
@@ -34,6 +33,4 @@
 
     </div>
 }
-
-
 

@@ -1,7 +1,6 @@
-﻿
-@model MVCCrud.Models.View_models.Empresaviewmodels
+﻿@model MVCCrud.Models.View_models.Empresaviewmodels
 @{
-    ViewBag.Title = "Nuevo";
+    ViewBag.Title = "Crear";
 }
 
 <h2>ViewBag.Title</h2>
@@ -17,21 +16,23 @@
                 @Html.TextBoxFor(d => d.perNombre, "", new { @class = "form-control" })
                 @Html.ValidationMessageFor(d => d.perNombre, null, new { @class = "red" })
             </div>
-
             <div>
                 @Html.LabelFor(d => d.perCorreo)
                 @Html.TextBoxFor(d => d.perCorreo, "", new { @class = "form-control" })
                 @Html.ValidationMessageFor(d => d.perCorreo, null, new { @class = "red" })
+
             </div>
             <div>
                 @Html.LabelFor(d => d.perNit)
-                @Html.TextBoxFor(d => d.perNit, "", new { @class = "form-control" })
+                @Html.TextBoxFor(d => d.perNit, "", new {  @class = "form-control" })
                 @Html.ValidationMessageFor(d => d.perNit, null, new { @class = "red" })
+
             </div>
+
             <br />
 
             <div style="text-align:right;">
-                <a class="btn btn-primary" type="button" href="~/Usuarios"> Cancelar </a>
+                <a class="btn btn-primary" type="button" href="~/Empresa"> Cancelar </a>
 
                 <input value="Guardar" class="btn btn-primary" type="submit" />
             </div>
@@ -39,4 +40,5 @@
 
     </div>
 }
+
 

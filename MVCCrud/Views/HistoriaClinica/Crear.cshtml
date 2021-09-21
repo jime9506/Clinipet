@@ -6,10 +6,15 @@
 <h2>ViewBag.Title</h2>
 
 
-@using (Html.BeginForm("Nuevo", "HistoriaClinica", FormMethod.Post))
+@using (Html.BeginForm("Crear", "HistoriaClinica", FormMethod.Post))
 {
     <div class="row">
         <div class="col-md-12">
+            <div>
+                @Html.LabelFor(d => d.IdMascota)
+                @Html.TextBoxFor(d => d.IdMascota, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.IdMascota, null, new { @class = "red" })
+            </div>
             <div>
                 @Html.LabelFor(d => d.Emfermedades)
                 @Html.TextBoxFor(d => d.Emfermedades, "", new { @class = "form-control" })
@@ -19,26 +24,22 @@
                 @Html.LabelFor(d => d.Vacunas)
                 @Html.TextBoxFor(d => d.Vacunas, "", new { @class = "form-control" })
                 @Html.ValidationMessageFor(d => d.Vacunas, null, new { @class = "red" })
+
             </div>
             <div>
                 @Html.LabelFor(d => d.Peso)
                 @Html.TextBoxFor(d => d.Peso, "", new { @class = "form-control" })
                 @Html.ValidationMessageFor(d => d.Peso, null, new { @class = "red" })
-
-            </div>
-            <div>
-                @Html.LabelFor(d => d.perGenero)
-                @Html.TextBoxFor(d => d.perGenero, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.perGenero, null, new { @class = "red" })
             </div>
             <br />
 
             <div style="text-align:right;">
-                <a class="btn btn-primary" type="button" href="~/Usuarios"> Cancelar </a>
+                <a class="btn btn-primary" type="button" href="~/HistoriaClinica"> Cancelar </a>
                 <input value="Guardar" class="btn btn-primary" type="submit" />
             </div>
         </div>
 
     </div>
 }
+
 

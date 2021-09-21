@@ -1,16 +1,21 @@
 ﻿@model MVCCrud.Models.View_models.HistoriaClinicaviewmodels
 @{
-    ViewBag.Title = "Nuevo";
+    ViewBag.Title = "Crear";
 }
 
 <h2>ViewBag.Title</h2>
 
 
-@using (Html.BeginForm("Editar", "Usuarios", FormMethod.Post))
+@using (Html.BeginForm("Editar", "HistoriaClinica", FormMethod.Post))
 {
     <div class="row">
         <div class="col-md-12">
-            @Html.HiddenFor(d => d.Id)
+            @Html.HiddenFor(d => d.Id) 
+            <div>
+                @Html.LabelFor(d => d.IdMascota)
+                @Html.TextBoxFor(d => d.IdMascota, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.IdMascota, null, new { @class = "red" })
+            </div>
             <div>
                 @Html.LabelFor(d => d.Emfermedades)
                 @Html.TextBoxFor(d => d.Emfermedades, "", new { @class = "form-control" })
@@ -20,6 +25,7 @@
                 @Html.LabelFor(d => d.Vacunas)
                 @Html.TextBoxFor(d => d.Vacunas, "", new { @class = "form-control" })
                 @Html.ValidationMessageFor(d => d.Vacunas, null, new { @class = "red" })
+
             </div>
             <div>
                 @Html.LabelFor(d => d.Peso)
@@ -27,11 +33,11 @@
                 @Html.ValidationMessageFor(d => d.Peso, null, new { @class = "red" })
 
             </div>
-            
+
             <br />
 
             <div style="text-align:right;">
-                <a class="btn btn-primary" type="button" href="~/Usuarios"> Cancelar </a>
+                <a class="btn btn-primary" type="button" href="~/HistoriaClinica"> Cancelar </a>
 
                 <input value="Guardar" class="btn btn-primary" type="submit" />
             </div>

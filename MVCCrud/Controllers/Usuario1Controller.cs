@@ -3,87 +3,131 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MVCCrud.Models;
+using MVCCrud.Models.View_models;
+
 
 namespace MVCCrud.Controllers
 {
-    public class Usuario1Controller : Controller
+    public class UsuarioController : Controller
     {
-        // GET: Usuario1
+        // GET: Tabla
         public ActionResult Index()
         {
-            return View();
-        }
+            List<Usuarioviewmodels> lst;
+            using (Clinipet1Entities db = new Clinipet1Entities())
+            {
+                lst = (from d in db.Usuario
+                       select new Usuarioviewmodels
+                       {
+                           Id = d.IdUsuario,
+                           Email = d.Email,
+                           Password = d.Password,
+                           IdRol = d.IdRol,
 
-        // GET: Usuario1/Details/5
-        public ActionResult Details(int id)
+                       }).ToList();
+
+            }
+            return View(lst);
+        }
+        public ActionResult Crear()
         {
             return View();
-        }
 
-        // GET: Usuario1/Create
-        public ActionResult Create()
-        {
-            return View();
         }
-
-        // POST: Usuario1/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Crear(Usuarioviewmodels model)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    using (Clinipet1Entities db = new Clinipet1Entities())
+                    {
+                        var Usuario = new Usuario();
+                        Usuario.Email = model.Email;
+                        Usuario.Password = model.Password;
+                        Usuario.IdRol = model.IdRol;
+                        Usuario.IdPersona = model.IdPersona;
 
-                return RedirectToAction("Index");
+                        db.Usuario.Add(Usuario);
+                        db.SaveChanges();
+                    }
+
+                    return Redirect("~/Usuario");
+                }
+
+                return View(model);
             }
-            catch
+
+            catch (Exception ex)
             {
-                return View();
+                throw new Exception(ex.Message);
             }
+
         }
 
-        // GET: Usuario1/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Editar(long Id)
         {
-            return View();
-        }
 
-        // POST: Usuario1/Edit/5
+            Usuarioviewmodels model = new Usuarioviewmodels();
+            using (Clinipet1Entities db = new Clinipet1Entities())
+            {
+                var mUsuario = db.Usuario.Find(Id);
+                model.Email = mUsuario.Email;
+                model.Password = mUsuario.Password;
+                model.IdRol = mUsuario.IdRol;
+                model.IdPersona = mUsuario.IdPersona;
+
+            }
+            return View(model);
+
+        }
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Editar(Usuarioviewmodels model)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    using (Clinipet1Entities db = new Clinipet1Entities())
+                    {
+                        var Usuario = db.Usuario.Find(model.Id);
+                        Usuario.Email = model.Email;
+                        Usuario.Password = model.Password;
+                        Usuario.IdRol = model.IdRol;
+                        Usuario.IdPersona = model.IdPersona;     
 
-                return RedirectToAction("Index");
+                        db.Entry(Usuario).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+
+                    return Redirect("~/Usuario");
+                }
+
+                return View(model);
             }
-            catch
+
+            catch (Exception ex)
             {
-                return View();
+                throw new Exception(ex.Message);
             }
+
         }
-
-        // GET: Usuario1/Delete/5
-        public ActionResult Delete(int id)
+        [HttpGet]
+        public ActionResult Eliminar(int IdUsuario)
         {
-            return View();
-        }
 
-        // POST: Usuario1/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
+            using (Clinipet1Entities db = new Clinipet1Entities())
             {
-                // TODO: Add delete logic here
+                var Usuario = db.Usuario.Find(IdUsuario);
+                db.Usuario.Remove(Usuario);
+                db.SaveChanges();
 
-                return RedirectToAction("Index");
+
             }
-            catch
-            {
-                return View();
-            }
+            return Redirect("~/Usuario/");
+
         }
     }
 }

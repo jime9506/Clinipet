@@ -11,7 +11,7 @@ namespace MVCCrud.Models.View_models
         public int IdMascota { get; set; }
         public string Emfermedades { get; set; }
         public string Vacunas { get; set; }
-        public string Peso { get; set; }
+        public decimal Peso { get; set; }
        
         
 

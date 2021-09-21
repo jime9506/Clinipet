@@ -55,8 +55,6 @@ namespace MVCCrud.Controllers
                         oUsuarios.perCorreo = model.perCorreo;
                         oUsuarios.perFechaNacimiento = model.perFechaNacimiento;
                         
-
-
                         db.Personas.Add(oUsuarios);
                         db.SaveChanges();
                     }

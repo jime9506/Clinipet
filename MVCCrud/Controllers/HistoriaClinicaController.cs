@@ -14,79 +14,120 @@ namespace MVCCrud.Controllers
         // GET: HistoriaClinica
         public ActionResult Index()
         {
-            return View();
+            List<HistoriaClinicaviewmodels> lst;
+            using (Clinipet1Entities db = new Clinipet1Entities())
+            {
+                lst = (from d in db.HistoriaClinica
+                       select new HistoriaClinicaviewmodels
+                       {                          
+                           Emfermedades = d.Emfermedades,
+                           Vacunas = d.Vacunas,
+                           Peso = d.Peso,
+
+                       }).ToList();
+            }
+            return View(lst);
         }
+
 
         // GET: HistoriaClinica/Details/5
-        public ActionResult Details(int id)
+
+        public ActionResult Crear()
         {
             return View();
-        }
 
-        // GET: HistoriaClinica/Create
-        public ActionResult Create()
-        {
-            return View();
         }
-
-        // POST: HistoriaClinica/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Crear(HistoriaClinicaviewmodels model)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    using (Clinipet1Entities db = new Clinipet1Entities())
+                    {
+                        var HistoriaClinica = new HistoriaClinica();
+                        HistoriaClinica.IdMascota = model.IdMascota;
+                        HistoriaClinica.Emfermedades = model.Emfermedades;
+                        HistoriaClinica.Vacunas = model.Vacunas;
+                        HistoriaClinica.Peso = model.Peso;
 
-                return RedirectToAction("Index");
+                        db.HistoriaClinica.Add(HistoriaClinica);
+                        db.SaveChanges();
+                    }
+
+                    return Redirect("~/HistoriaClinica");
+                }
+
+                return View(model);
             }
-            catch
+
+            catch (Exception ex)
             {
-                return View();
+                throw new Exception(ex.Message);
             }
-        }
 
-        // GET: HistoriaClinica/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
         }
+            public ActionResult Editar(int Id)
+            {
 
-        // POST: HistoriaClinica/Edit/5
+                HistoriaClinicaviewmodels model = new HistoriaClinicaviewmodels();
+                using (Clinipet1Entities db = new Clinipet1Entities())
+                {
+                    var HistoriaClinica = db.HistoriaClinica.Find(Id);
+                    model.Emfermedades = HistoriaClinica.Emfermedades;
+                    model.Vacunas= HistoriaClinica.Vacunas;
+                    model.Peso = HistoriaClinica.Peso;
+                }
+                return View(model);
+
+            }
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Editar(HistoriaClinicaviewmodels model)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    using (Clinipet1Entities db = new Clinipet1Entities())
+                    {
+                        var HistoriaClinica = db.HistoriaClinica.Find(model.IdMascota);
+                        HistoriaClinica.Emfermedades = model.Emfermedades;
+                        HistoriaClinica.Vacunas = model.Vacunas;
+                        HistoriaClinica.Peso= model.Peso;
+                        db.Entry(HistoriaClinica).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
 
-                return RedirectToAction("Index");
+                    return Redirect("~/HistoriaClinica");
+                }
+
+                return View(model);
             }
-            catch
+
+            catch (Exception ex)
             {
-                return View();
+                throw new Exception(ex.Message);
             }
-        }
 
-        // GET: HistoriaClinica/Delete/5
-        public ActionResult Delete(int id)
+        }
+        [HttpGet]
+        public ActionResult Eliminar(int Id)
         {
-            return View();
+
+            using (Clinipet1Entities db = new Clinipet1Entities())
+            {
+                var HistoriaClinica = db.HistoriaClinica.Find(Id);
+                db.HistoriaClinica.Remove(HistoriaClinica);
+                db.SaveChanges();
+
+
+            }
+            return Redirect("~/HistoriaClinica/");
+
         }
 
-        // POST: HistoriaClinica/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+
     }
 }

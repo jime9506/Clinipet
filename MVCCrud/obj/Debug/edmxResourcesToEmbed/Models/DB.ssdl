@@ -5,7 +5,6 @@ advertencia 6002: La tabla o vista 'Clinipet1.dbo..Roles' no tiene definida ning
   <EntityType Name="_Roles">
     <Key>
       <PropertyRef Name="IdRol" />
-      <PropertyRef Name="Rol" />
     </Key>
     <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Rol" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -15,9 +14,6 @@ advertencia 6002: La tabla o vista 'Clinipet1.dbo.Empleados' no tiene definida n
   <EntityType Name="Empleados">
     <Key>
       <PropertyRef Name="Id" />
-      <PropertyRef Name="Cargo" />
-      <PropertyRef Name="FechaContratacion" />
-      <PropertyRef Name="TipoContrato" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Cargo" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -29,9 +25,6 @@ advertencia 6002: La tabla o vista 'Clinipet1.dbo.Empresa' no tiene definida nin
   <EntityType Name="Empresa">
     <Key>
       <PropertyRef Name="IdEmpresa" />
-      <PropertyRef Name="perNombre" />
-      <PropertyRef Name="perCorreo" />
-      <PropertyRef Name="perNit" />
     </Key>
     <Property Name="IdEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="perNombre" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -42,11 +35,9 @@ advertencia 6002: La tabla o vista 'Clinipet1.dbo.Empresa' no tiene definida nin
 advertencia 6002: La tabla o vista 'Clinipet1.dbo.HistoriaClinica' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="HistoriaClinica">
     <Key>
-      <PropertyRef Name="Emfermedades" />
-      <PropertyRef Name="Vacunas" />
-      <PropertyRef Name="Peso" />
+      <PropertyRef Name="IdMascota" />
     </Key>
-    <Property Name="IdMascota" Type="int" />
+    <Property Name="IdMascota" Type="int" Nullable="false" />
     <Property Name="Emfermedades" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Vacunas" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Peso" Type="decimal" Precision="18" Scale="0" Nullable="false" />
@@ -99,10 +90,6 @@ advertencia 6002: La tabla o vista 'Clinipet1.dbo.Usuario' no tiene definida nin
   <EntityType Name="Usuario">
     <Key>
       <PropertyRef Name="IdUsuario" />
-      <PropertyRef Name="Email" />
-      <PropertyRef Name="Password" />
-      <PropertyRef Name="IdRol" />
-      <PropertyRef Name="IdPersona" />
     </Key>
     <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />

@@ -6,37 +6,34 @@
 <h2>ViewBag.Title</h2>
 
 
-@using (Html.BeginForm("Crear", "Empleado", FormMethod.Post))
+@using (Html.BeginForm("Crear", "Empresa", FormMethod.Post))
 {
     <div class="row">
         <div class="col-md-12">
             <div>
-                @Html.LabelFor(d => d.Cargo)
-                @Html.TextBoxFor(d => d.Cargo, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.Cargo, null, new { @class = "red" })
+                @Html.LabelFor(d => d.perNombre)
+                @Html.TextBoxFor(d => d.perNombre, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perNombre, null, new { @class = "red" })
             </div>
             <div>
-                @Html.LabelFor(d => d.FechaContratacion)
-                @Html.TextBoxFor(d => d.FechaContratacion, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.FechaContratacion, null, new { @class = "red" })
+                @Html.LabelFor(d => d.perCorreo)
+                @Html.TextBoxFor(d => d.perCorreo, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perCorreo, null, new { @class = "red" })
             </div>
             <div>
-                @Html.LabelFor(d => d.TipoContrato)
-                @Html.TextBoxFor(d => d.TipoContrato, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.TipoContrato, null, new { @class = "red" })
-
+                @Html.LabelFor(d => d.perNit)
+                @Html.TextBoxFor(d => d.perNit, "", new {  @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.perNit, null, new { @class = "red" })
             </div>
             <br />
 
             <div style="text-align:right;">
-                <a class="btn btn-primary" type="button" href="~/Usuarios"> Cancelar </a>
+                <a class="btn btn-primary" type="button" href="~/Empresa"> Cancelar </a>
                 <input value="Guardar" class="btn btn-primary" type="submit" />
             </div>
         </div>
 
     </div>
 }
-
-
 
 

@@ -11,7 +11,7 @@ namespace MVCCrud.Models.View_models
         public int Id { get; set; }
         public string Cargo { get; set; }
         public string FechaContratacion { get; set; }
-        public string TipoContrato { get; set; }
+        public string TipoContratacion { get; set; }
      
     }
 }

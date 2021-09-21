@@ -10,32 +10,27 @@
 {
     <div class="row">
         <div class="col-md-12">
-            @Html.HiddenFor(d=>d.Id)
+            @Html.HiddenFor(d => d.Id)
             <div>
-                @Html.LabelFor(d => d.perCedula)
-                @Html.TextBoxFor(d => d.perCedula, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.perCedula, null, new { @class = "red" })
+                @Html.LabelFor(d => d.Email)
+                @Html.TextBoxFor(d => d.Email, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Email, null, new { @class = "red" })
             </div>
             <div>
-                @Html.LabelFor(d => d.perNombres)
-                @Html.TextBoxFor(d => d.perNombres, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.perNombres, null, new { @class = "red" })
-            </div>
-            <div>
-                @Html.LabelFor(d => d.perApellidos)
-                @Html.TextBoxFor(d => d.perApellidos, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.perApellidos, null, new { @class = "red" })
+                @Html.LabelFor(d => d.Password)
+                @Html.TextBoxFor(d => d.Password, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Password, null, new { @class = "red" })
 
             </div>
             <div>
-                @Html.LabelFor(d => d.perGenero)
-                @Html.TextBoxFor(d => d.perGenero, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.perGenero, null, new { @class = "red" })
+                @Html.LabelFor(d => d.IdRol)
+                @Html.TextBoxFor(d => d.IdRol, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.IdRol, null, new { @class = "red" })
             </div>
             <div>
-                @Html.LabelFor(d => d.perCorreo)
-                @Html.TextBoxFor(d => d.perCorreo, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.perCorreo, null, new { @class = "red" })
+                @Html.LabelFor(d => d.IdPersona)
+                @Html.TextBoxFor(d => d.IdPersona, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.IdPersona, null, new { @class = "red" })
             </div>
             <br />
 

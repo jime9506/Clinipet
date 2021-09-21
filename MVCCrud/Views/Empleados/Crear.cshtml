@@ -1,4 +1,4 @@
-﻿@model MVCCrud.Models.View_models.Personasviewmodels
+﻿@model MVCCrud.Models.View_models.Empleadosviewmodels
 @{
     ViewBag.Title = "Crear";
 }
@@ -21,9 +21,9 @@
                 @Html.ValidationMessageFor(d => d.FechaContratacion, null, new { @class = "red" })
             </div>
             <div>
-                @Html.LabelFor(d => d.TipoContrato)
-                @Html.TextBoxFor(d => d.TipoContrato, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.TipoContrato, null, new { @class = "red" })
+                @Html.LabelFor(d => d.TipoContratacion)
+                @Html.TextBoxFor(d => d.TipoContratacion, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.TipoContratacion, null, new { @class = "red" })
 
             </div>
             <br />

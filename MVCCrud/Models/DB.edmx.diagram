@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="aaf0e3567398434590b0418a73d056b7" Name="Diagram1">
         <EntityTypeShape EntityType="Clinipet1Model.Personas" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Clinipet1Model.C_Roles" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Clinipet1Model.C_Roles" Width="2.25" PointX="2.375" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Clinipet1Model.Empleados" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Clinipet1Model.Empresa" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Clinipet1Model.HistoriaClinica" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />

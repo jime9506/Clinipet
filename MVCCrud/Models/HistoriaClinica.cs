@@ -14,7 +14,7 @@ namespace MVCCrud.Models
     
     public partial class HistoriaClinica
     {
-        public Nullable<int> IdMascota { get; set; }
+        public int IdMascota { get; set; }
         public string Emfermedades { get; set; }
         public string Vacunas { get; set; }
         public decimal Peso { get; set; }

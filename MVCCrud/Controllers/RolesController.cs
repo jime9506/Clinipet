@@ -7,86 +7,116 @@ using MVCCrud.Models;
 using MVCCrud.Models.View_models;
 
 
-namespace MVCCrud.Controllers
+public class RolesController : Controller
 {
-    public class RolesController : Controller
+    // GET: Tabla
+    public ActionResult Index()
     {
-        // GET: Roles
-        public ActionResult Index()
+        List<Rolesviewmodels> lst;
+        using (Clinipet1Entities db = new Clinipet1Entities())
         {
-            return View();
-        }
+            lst = (from d in db.Roles
+                   select new Rolesviewmodels
+                   {
+                       IdRol = d.IdRol,
+                       Rol = d.Rol,
 
-        // GET: Roles/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+                   }).ToList();
 
-        // GET: Roles/Create
-        public ActionResult Create()
-        {
-            return View();
         }
+        return View(lst);
+    }
+    public ActionResult Crear()
+    {
+        return View();
 
-        // POST: Roles/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
+    }
+    [HttpPost]
+    public ActionResult Crear(Rolesviewmodels model)
+    {
+        try
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                using (Clinipet1Entities db = new Clinipet1Entities())
+                {
+                    var Roles = new Roles();
+                    Roles.IdRol = model.IdRol;
+                    Roles.Rol = model.Rol;
 
-                return RedirectToAction("Index");
+                    db.Roles.Add(Roles);
+                    db.SaveChanges();
+                }
+
+                return Redirect("~/Roles");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(model);
         }
 
-        // GET: Roles/Edit/5
-        public ActionResult Edit(int id)
+        catch (Exception ex)
         {
-            return View();
+            throw new Exception(ex.Message);
         }
 
-        // POST: Roles/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+    }
+
+    public ActionResult Editar(int Id)
+    {
+
+        Rolesviewmodels model = new Rolesviewmodels();
+        using (Clinipet1Entities db = new Clinipet1Entities())
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var Roles = db.Roles.Find(Id);
+            model.IdRol = Roles.IdRol;
+            model.Rol = Roles.Rol;
+           
         }
+        return View(model);
 
-        // GET: Roles/Delete/5
-        public ActionResult Delete(int id)
+    }
+    [HttpPost]
+    public ActionResult Editar(Rolesviewmodels model)
+    {
+        try
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                using (Clinipet1Entities db = new Clinipet1Entities())
+                {
+                    var Roles = db.Roles.Find(model.IdRol);
+                    Roles.IdRol = model.IdRol;
+                    Roles.Rol = model.Rol;               
+
+                    db.Entry(Roles).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+                return Redirect("~/Roles");
+            }
+
+            return View(model);
         }
 
-        // POST: Roles/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        catch (Exception ex)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            throw new Exception(ex.Message);
         }
+
+    }
+    [HttpGet]
+    public ActionResult Eliminar(int Id)
+    {
+
+        using (Clinipet1Entities db = new Clinipet1Entities())
+        {
+            var Roles = db.Roles.Find(Id);
+            db.Roles.Remove(Roles);
+            db.SaveChanges();
+
+
+        }
+        return Redirect("~/Roles/");
+
     }
 }

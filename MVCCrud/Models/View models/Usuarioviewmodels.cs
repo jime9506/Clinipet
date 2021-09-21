@@ -9,18 +9,19 @@ namespace MVCCrud.Models.View_models
     public class Usuarioviewmodels
     {
         public int Id { get; set; }
-        public string Email { get; set; }
         [Required]
         [StringLength(50)]
         [Display(Name = "Email")]
-        public string Password { get; set; }
+        public string Email { get; set; }
         [Required]
         [Display(Name = "Password")]
-        public string IdRol{ get; set; }
+        public string Password { get; set; }
         [Required]
         [Display(Name = "IdRol")]
-        public string IdPersona { get; set; }
-        
-     
+        public int IdRol{ get; set; }
+        [Required]
+        [Display(Name = "IdPersona")]
+        public int IdPersona { get; set; }
+       
     }
 }

@@ -11,82 +11,135 @@ namespace MVCCrud.Controllers
 {
     public class MascotasController : Controller
     {
+
         // GET: Mascotas
         public ActionResult Index()
         {
-            return View();
-        }
+            List<Mascotasviewmodels> lst;
+            using (Clinipet1Entities db = new Clinipet1Entities())
+            {
+                lst = (from d in db.Mascota
+                       select new Mascotasviewmodels
+                       {
+                           Categoria = d.Categoria,
+                           NombreMascota= d.NombreMascota,
+                           Telefono = d.Telefono,
+                           Raza= d.Raza,
+                           Edad= d.Edad,
+                           Sexo = d.Sexo,
+                           Acudiente = d.Acudiente,
+                       }).ToList();
 
-        // GET: Mascotas/Details/5
-        public ActionResult Details(int id)
+            }
+            return View(lst);
+        }
+        public ActionResult Crear()
         {
             return View();
-        }
 
-        // GET: Mascotas/Create
-        public ActionResult Create()
-        {
-            return View();
         }
-
-        // POST: Mascotas/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Crear(Mascotasviewmodels model)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    using (Clinipet1Entities db = new Clinipet1Entities())
+                    {
+                        var Mascota = new Mascota();
+                        Mascota.Categoria= model.Categoria;
+                        Mascota.NombreMascota = model.NombreMascota;
+                        Mascota.Telefono = model.Telefono;
+                        Mascota.Raza = model.Raza;
+                        Mascota.Edad= model.Edad;
+                        Mascota.Sexo = model.Sexo;
+                        Mascota.Acudiente = model.Acudiente;
 
-                return RedirectToAction("Index");
+                        db.Mascota.Add(Mascota);
+                        db.SaveChanges();
+                    }
+
+                    return Redirect("~/Mascotas");
+                }
+
+                return View(model);
             }
-            catch
+
+            catch (Exception ex)
             {
-                return View();
+                throw new Exception(ex.Message);
             }
+
         }
 
-        // GET: Mascotas/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Editar(int Id)
         {
-            return View();
-        }
 
-        // POST: Mascotas/Edit/5
+            Mascotasviewmodels model = new Mascotasviewmodels();
+            using (Clinipet1Entities db = new Clinipet1Entities())
+            {
+                var Mascotas = db.Mascota.Find(Id);
+                model.Categoria = Mascotas.Categoria;
+                model.NombreMascota = Mascotas.NombreMascota;
+                model.Telefono = Mascotas.Telefono;
+                model.Raza = Mascotas.Raza;
+                model.Edad = Mascotas.Edad;
+                model.Sexo= Mascotas.Sexo;
+            }
+            return View(model);
+
+        }
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Editar(Mascotasviewmodels model)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    using (Clinipet1Entities db = new Clinipet1Entities())
+                    {
+                        var Mascotas = db.Mascota.Find(model.IdMascota);
+                        Mascotas.Categoria = model.Categoria;
+                        Mascotas.NombreMascota = model.NombreMascota;
+                        Mascotas.Telefono = model.Telefono;
+                        Mascotas.Raza = model.Raza;
+                        Mascotas.Edad = model.Edad;
+                        Mascotas.Sexo = model.Sexo;
 
-                return RedirectToAction("Index");
+                        db.Entry(Mascotas).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+
+                    return Redirect("~/Mascotas");
+                }
+
+                return View(model);
             }
-            catch
+
+            catch (Exception ex)
             {
-                return View();
+                throw new Exception(ex.Message);
             }
+
         }
-
-        // GET: Mascotas/Delete/5
-        public ActionResult Delete(int id)
+        [HttpGet]
+        public ActionResult Eliminar(int Id)
         {
-            return View();
-        }
 
-        // POST: Mascotas/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
+            using (Clinipet1Entities db = new Clinipet1Entities())
             {
-                // TODO: Add delete logic here
+                var Mascotas = db.Mascota.Find(Id);
+                db.Mascota.Remove(Mascotas);
+                db.SaveChanges();
 
-                return RedirectToAction("Index");
+
             }
-            catch
-            {
-                return View();
-            }
+            return Redirect("~/Mascotas/");
+
         }
     }
 }
+    
+
+    
