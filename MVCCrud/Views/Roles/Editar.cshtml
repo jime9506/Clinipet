@@ -10,12 +10,8 @@
 {
     <div class="row">
         <div class="col-md-12">
-            @Html.HiddenFor(d => d.Id)
-            <div>
-                @Html.LabelFor(d => d.IdRol)
-                @Html.TextBoxFor(d => d.IdRol, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.IdRol, null, new { @class = "red" })
-            </div>
+            @Html.HiddenFor(d => d.IdRol)
+        
             <div>
                 @Html.LabelFor(d => d.Rol)
                 @Html.TextBoxFor(d => d.Rol, "", new { @class = "form-control" })
@@ -25,7 +21,7 @@
             <br />
 
             <div style="text-align:right;">
-                <a class="btn btn-primary" type="button" href="~/Personas"> Cancelar </a>
+                <a class="btn btn-primary" type="button" href="~/Rolres"> Cancelar </a>
 
                 <input value="Guardar" class="btn btn-primary" type="submit" />
             </div>

@@ -21,6 +21,7 @@ namespace MVCCrud.Controllers
                 lst = (from d in db.Mascota
                        select new Mascotasviewmodels
                        {
+                           IdMascota = d.IdMascota,
                            Categoria = d.Categoria,
                            NombreMascota= d.NombreMascota,
                            Telefono = d.Telefono,
@@ -80,6 +81,7 @@ namespace MVCCrud.Controllers
             using (Clinipet1Entities db = new Clinipet1Entities())
             {
                 var Mascotas = db.Mascota.Find(Id);
+                model.IdMascota = Mascotas.IdMascota;
                 model.Categoria = Mascotas.Categoria;
                 model.NombreMascota = Mascotas.NombreMascota;
                 model.Telefono = Mascotas.Telefono;
@@ -100,6 +102,7 @@ namespace MVCCrud.Controllers
                     using (Clinipet1Entities db = new Clinipet1Entities())
                     {
                         var Mascotas = db.Mascota.Find(model.IdMascota);
+                        
                         Mascotas.Categoria = model.Categoria;
                         Mascotas.NombreMascota = model.NombreMascota;
                         Mascotas.Telefono = model.Telefono;

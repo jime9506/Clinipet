@@ -1,27 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Clinipet1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Clinipet1.dbo..Roles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-  <EntityType Name="_Roles">
-    <Key>
-      <PropertyRef Name="IdRol" />
-    </Key>
-    <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Rol" Type="nvarchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Clinipet1.dbo.Empleados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="Empleados">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Cargo" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="FechaContratacion" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="TipoContrato" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Clinipet1.dbo.Empresa' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="Empresa">
     <Key>
       <PropertyRef Name="IdEmpresa" />
@@ -31,30 +18,20 @@ advertencia 6002: La tabla o vista 'Clinipet1.dbo.Empresa' no tiene definida nin
     <Property Name="perCorreo" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="perNit" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Clinipet1.dbo.HistoriaClinica' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="HistoriaClinica">
     <Key>
       <PropertyRef Name="IdMascota" />
     </Key>
-    <Property Name="IdMascota" Type="int" Nullable="false" />
+    <Property Name="IdMascota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Emfermedades" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Vacunas" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Peso" Type="decimal" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Clinipet1.dbo.Mascota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="Mascota">
     <Key>
-      <PropertyRef Name="Categoria" />
-      <PropertyRef Name="NombreMascota" />
-      <PropertyRef Name="Telefono" />
-      <PropertyRef Name="Raza" />
-      <PropertyRef Name="Edad" />
-      <PropertyRef Name="Sexo" />
-      <PropertyRef Name="Acudiente" />
+      <PropertyRef Name="IdMascota" />
     </Key>
-    <Property Name="IdMascota" Type="int" />
+    <Property Name="IdMascota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Categoria" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="NombreMascota" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Telefono" Type="int" Nullable="false" />
@@ -73,20 +50,25 @@ advertencia 6002: La tabla o vista 'Clinipet1.dbo.Mascota' no tiene definida nin
     <Property Name="perApellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="perGenero" Type="nvarchar" MaxLength="12" Nullable="false" />
     <Property Name="perCorreo" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="perFechaNacimiento" Type="date" Nullable="false" />
+    <Property Name="perFechaNacimiento" Type="date" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Clinipet1.dbo.Roles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="Roles">
     <Key>
       <PropertyRef Name="IdRol" />
-      <PropertyRef Name="Rol" />
     </Key>
     <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Rol" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Clinipet1.dbo.Usuario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="Usuario">
     <Key>
       <PropertyRef Name="IdUsuario" />
@@ -98,63 +80,13 @@ advertencia 6002: La tabla o vista 'Clinipet1.dbo.Usuario' no tiene definida nin
     <Property Name="IdPersona" Type="int" Nullable="false" />
   </EntityType>
   <EntityContainer Name="Clinipet1ModelStoreContainer">
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistoriaClinica" EntityType="Self.HistoriaClinica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mascota" EntityType="Self.Mascota" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Personas" EntityType="Self.Personas" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="_Roles" EntityType="Self._Roles" store:Type="Tables" store:Schema="dbo" store:Name=".Roles">
-      <DefiningQuery>SELECT 
-    [_Roles].[IdRol] AS [IdRol], 
-    [_Roles].[Rol] AS [Rol]
-    FROM [dbo].[.Roles] AS [_Roles]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Empleados" EntityType="Self.Empleados" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Empleados].[Id] AS [Id], 
-    [Empleados].[Cargo] AS [Cargo], 
-    [Empleados].[FechaContratacion] AS [FechaContratacion], 
-    [Empleados].[TipoContrato] AS [TipoContrato]
-    FROM [dbo].[Empleados] AS [Empleados]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Empresa" EntityType="Self.Empresa" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Empresa].[IdEmpresa] AS [IdEmpresa], 
-    [Empresa].[perNombre] AS [perNombre], 
-    [Empresa].[perCorreo] AS [perCorreo], 
-    [Empresa].[perNit] AS [perNit]
-    FROM [dbo].[Empresa] AS [Empresa]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="HistoriaClinica" EntityType="Self.HistoriaClinica" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [HistoriaClinica].[IdMascota] AS [IdMascota], 
-    [HistoriaClinica].[Emfermedades] AS [Emfermedades], 
-    [HistoriaClinica].[Vacunas] AS [Vacunas], 
-    [HistoriaClinica].[Peso] AS [Peso]
-    FROM [dbo].[HistoriaClinica] AS [HistoriaClinica]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Mascota" EntityType="Self.Mascota" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Mascota].[IdMascota] AS [IdMascota], 
-    [Mascota].[Categoria] AS [Categoria], 
-    [Mascota].[NombreMascota] AS [NombreMascota], 
-    [Mascota].[Telefono] AS [Telefono], 
-    [Mascota].[Raza] AS [Raza], 
-    [Mascota].[Edad] AS [Edad], 
-    [Mascota].[Sexo] AS [Sexo], 
-    [Mascota].[Acudiente] AS [Acudiente]
-    FROM [dbo].[Mascota] AS [Mascota]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Roles" EntityType="Self.Roles" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Roles].[IdRol] AS [IdRol], 
-    [Roles].[Rol] AS [Rol]
-    FROM [dbo].[Roles] AS [Roles]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Usuario" EntityType="Self.Usuario" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Usuario].[IdUsuario] AS [IdUsuario], 
-    [Usuario].[Email] AS [Email], 
-    [Usuario].[Password] AS [Password], 
-    [Usuario].[IdRol] AS [IdRol], 
-    [Usuario].[IdPersona] AS [IdPersona]
-    FROM [dbo].[Usuario] AS [Usuario]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

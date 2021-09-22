@@ -20,6 +20,6 @@ namespace MVCCrud.Models
         public string perApellidos { get; set; }
         public string perGenero { get; set; }
         public string perCorreo { get; set; }
-        public System.DateTime perFechaNacimiento { get; set; }
+        public Nullable<System.DateTime> perFechaNacimiento { get; set; }
     }
 }

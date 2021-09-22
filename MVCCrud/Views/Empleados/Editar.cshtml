@@ -1,12 +1,12 @@
 ﻿@model MVCCrud.Models.View_models.  Empleadosviewmodels
 @{
-    ViewBag.Title = "Crear";
+    ViewBag.Title = "Editar";
 }
 
 <h2>ViewBag.Title</h2>
 
 
-@using (Html.BeginForm("Editar", "Empleado", FormMethod.Post))
+@using (Html.BeginForm("Editar", "Empleados", FormMethod.Post))
 {
     <div class="row">
         <div class="col-md-12">
@@ -22,15 +22,15 @@
                 @Html.ValidationMessageFor(d => d.FechaContratacion, null, new { @class = "red" })
             </div>
             <div>
-                @Html.LabelFor(d => d.TipoContrato)
-                @Html.TextBoxFor(d => d.TipoContrato, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.TipoContrato, null, new { @class = "red" })
+                @Html.LabelFor(d => d.TipoContratacion)
+                @Html.TextBoxFor(d => d.TipoContratacion, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.TipoContratacion, null, new { @class = "red" })
 
             </div>
             <br />
 
             <div style="text-align:right;">
-                <a class="btn btn-primary" type="button" href="~/Usuarios"> Cancelar </a>
+                <a class="btn btn-primary" type="button" href="~/Empleados"> Cancelar </a>
 
                 <input value="Guardar" class="btn btn-primary" type="submit" />
             </div>

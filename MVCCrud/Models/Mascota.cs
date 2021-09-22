@@ -14,7 +14,7 @@ namespace MVCCrud.Models
     
     public partial class Mascota
     {
-        public Nullable<int> IdMascota { get; set; }
+        public int IdMascota { get; set; }
         public string Categoria { get; set; }
         public string NombreMascota { get; set; }
         public int Telefono { get; set; }

@@ -25,13 +25,13 @@ namespace MVCCrud.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Personas> Personas { get; set; }
-        public virtual DbSet<C_Roles> C_Roles { get; set; }
         public virtual DbSet<Empleados> Empleados { get; set; }
         public virtual DbSet<Empresa> Empresa { get; set; }
         public virtual DbSet<HistoriaClinica> HistoriaClinica { get; set; }
         public virtual DbSet<Mascota> Mascota { get; set; }
+        public virtual DbSet<Personas> Personas { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
     }
 }

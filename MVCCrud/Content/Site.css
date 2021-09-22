@@ -110,12 +110,17 @@ textarea {
     color:red
 }
 .btn-left {
-    background: #023E8A;
+    color: black;
     padding: 4px;
+    border-bottom: solid 1px #b3b1b1;
 }
 .btn-left:hover {
-    background: #48CAE4;
+    background: #b3b1b1;
 }
+    .btn-left a:hover {
+        color:black;
+        text-decoration:none;
+    }
 .contenedor {
     border: 1px solid;
     width: 50%;
@@ -155,4 +160,10 @@ input[type="password"] {
 
     .button-login:hover {
         background: cadetblue;
+    }
+    .menu-l{
+
+    }
+    .c-black{
+        color:black;
     }

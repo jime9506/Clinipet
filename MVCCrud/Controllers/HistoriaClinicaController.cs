@@ -19,7 +19,8 @@ namespace MVCCrud.Controllers
             {
                 lst = (from d in db.HistoriaClinica
                        select new HistoriaClinicaviewmodels
-                       {                          
+                       {   
+                           IdMascota = d.IdMascota,
                            Emfermedades = d.Emfermedades,
                            Vacunas = d.Vacunas,
                            Peso = d.Peso,
@@ -75,6 +76,7 @@ namespace MVCCrud.Controllers
                 using (Clinipet1Entities db = new Clinipet1Entities())
                 {
                     var HistoriaClinica = db.HistoriaClinica.Find(Id);
+                    model.IdMascota = HistoriaClinica.IdMascota;
                     model.Emfermedades = HistoriaClinica.Emfermedades;
                     model.Vacunas= HistoriaClinica.Vacunas;
                     model.Peso = HistoriaClinica.Peso;

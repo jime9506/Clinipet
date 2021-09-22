@@ -1,29 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Clinipet1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Personas">
-    <Key>
-      <PropertyRef Name="IdPersona" />
-    </Key>
-    <Property Name="IdPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="perIdentificacion" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="perNombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="perApellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="perGenero" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="perCorreo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="perFechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
-  </EntityType>
-  <EntityType Name="C_Roles">
-    <Key>
-      <PropertyRef Name="IdRol" />
-    </Key>
-    <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
   <EntityType Name="Empleados">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="FechaContratacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="TipoContrato" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -41,22 +22,16 @@
     <Key>
       <PropertyRef Name="IdMascota" />
     </Key>
-    <Property Name="IdMascota" Type="Int32" Nullable="false" />
+    <Property Name="IdMascota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Emfermedades" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Vacunas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Peso" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="Mascota">
     <Key>
-      <PropertyRef Name="Categoria" />
-      <PropertyRef Name="NombreMascota" />
-      <PropertyRef Name="Telefono" />
-      <PropertyRef Name="Raza" />
-      <PropertyRef Name="Edad" />
-      <PropertyRef Name="Sexo" />
-      <PropertyRef Name="Acudiente" />
+      <PropertyRef Name="IdMascota" />
     </Key>
-    <Property Name="IdMascota" Type="Int32" />
+    <Property Name="IdMascota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NombreMascota" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Telefono" Type="Int32" Nullable="false" />
@@ -65,13 +40,34 @@
     <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Acudiente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
+  <EntityType Name="Personas">
+    <Key>
+      <PropertyRef Name="IdPersona" />
+    </Key>
+    <Property Name="IdPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="perIdentificacion" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="perNombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="perApellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="perGenero" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="perCorreo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="perFechaNacimiento" Type="DateTime" Precision="0" />
+  </EntityType>
   <EntityType Name="Roles">
     <Key>
       <PropertyRef Name="IdRol" />
-      <PropertyRef Name="Rol" />
     </Key>
     <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Usuario">
     <Key>
@@ -84,13 +80,13 @@
     <Property Name="IdPersona" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityContainer Name="Clinipet1Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Personas" EntityType="Self.Personas" />
-    <EntitySet Name="C_Roles" EntityType="Self.C_Roles" />
     <EntitySet Name="Empleados" EntityType="Self.Empleados" />
     <EntitySet Name="Empresa" EntityType="Self.Empresa" />
     <EntitySet Name="HistoriaClinica" EntityType="Self.HistoriaClinica" />
     <EntitySet Name="Mascota" EntityType="Self.Mascota" />
+    <EntitySet Name="Personas" EntityType="Self.Personas" />
     <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" />
   </EntityContainer>
 </Schema>

@@ -25,7 +25,7 @@ namespace MVCCrud.Controllers
                            perApellidos = d.perApellidos,
                            perGenero = d.perGenero,
                            perCorreo = d.perCorreo,
-                           perFechaNacimiento = d.perFechaNacimiento,
+                           perFechaNacimiento = (DateTime)d.perFechaNacimiento,
 
 
                        }).ToList();
@@ -84,7 +84,7 @@ namespace MVCCrud.Controllers
                 model.perApellidos = oPersonas.perApellidos;
                 model.perGenero = oPersonas.perGenero;
                 model.perCorreo = oPersonas.perCorreo;
-                model.perFechaNacimiento = oPersonas.perFechaNacimiento;
+                model.perFechaNacimiento = (DateTime)oPersonas.perFechaNacimiento;
             }
             return View(model);
 

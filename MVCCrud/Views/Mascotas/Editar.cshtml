@@ -1,6 +1,6 @@
 ﻿@model MVCCrud.Models.View_models.Mascotasviewmodels
 @{
-    ViewBag.Title = "Crear";
+    ViewBag.Title = "Editar";
 }
 
 <h2>ViewBag.Title</h2>
@@ -10,12 +10,8 @@
 {
     <div class="row">
         <div class="col-md-12">
-            @Html.HiddenFor(d => d.Id)
-            <div>
-                @Html.LabelFor(d => d.IdMascota)
-                @Html.TextBoxFor(d => d.IdMascota, "", new { @class = "form-control" })
-                @Html.ValidationMessageFor(d => d.IdMascota, null, new { @class = "red" })
-            </div>
+            @Html.HiddenFor(d => d.IdMascota)
+
             <div>
                 @Html.LabelFor(d => d.Categoria)
                 @Html.TextBoxFor(d => d.Categoria, "", new { @class = "form-control" })
@@ -41,18 +37,18 @@
             </div>
             <div>
                 @Html.LabelFor(d => d.Edad)
-                @Html.TextBoxFor(d => d.Edad, "", new { Type = "date", @class = "form-control" })
+                @Html.TextBoxFor(d => d.Edad, "", new {  @class = "form-control" })
                 @Html.ValidationMessageFor(d => d.Edad, null, new { @class = "red" })
 
             </div>
             <div>
                 @Html.LabelFor(d => d.Sexo)
-                @Html.TextBoxFor(d => d.Sexo, "", new { Type = "date", @class = "form-control" })
+                @Html.TextBoxFor(d => d.Sexo, "", new {  @class = "form-control" })
                 @Html.ValidationMessageFor(d => d.Sexo, null, new { @class = "red" })
             </div>
             <div>
                 @Html.LabelFor(d => d.Acudiente)
-                @Html.TextBoxFor(d => d.Acudiente, "", new { Type = "date", @class = "form-control" })
+                @Html.TextBoxFor(d => d.Acudiente, "", new {  @class = "form-control" })
                 @Html.ValidationMessageFor(d => d.Acudiente, null, new { @class = "red" })
 
             </div>
